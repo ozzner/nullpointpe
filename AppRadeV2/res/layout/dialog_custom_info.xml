@@ -1,0 +1,164 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#80dddddd"
+    android:orientation="vertical" >
+
+    <!-- Titulo -->
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffa700"
+        android:gravity="center"
+        android:shadowColor="#f2000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:text="INFO RATE"
+        android:textColor="#fff"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:typeface="monospace" />
+
+    <!-- Logo -->
+
+    <ImageView
+        android:id="@+id/img_check_user"
+        android:layout_width="65dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo" >
+    </ImageView>
+
+    <LinearLayout
+        android:id="@+id/lay_correo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <ImageView
+            android:id="@+id/iv_email"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img4" />
+
+        <TextView
+            android:id="@+id/tv_alta_cola"
+            style="@style/button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:text="@string/alta_cola"
+            android:textColor="#80000000"
+            android:textSize="15dip" />
+    </LinearLayout>
+
+    <!-- Poca cola -->
+
+    <LinearLayout
+        android:id="@+id/lay_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <ImageView
+            android:id="@+id/iv_password"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img3" />
+
+        <TextView
+            android:id="@+id/tv_cola_moderada"
+            style="@style/button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="2dp"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:fontFamily="sans-serif"
+            android:gravity="center"
+            android:text="@string/cola_coderada"
+            android:textColor="#80000000"
+            android:textSize="15dip" />
+    </LinearLayout>
+
+    <!-- Poca cola -->
+
+    <LinearLayout
+        android:id="@+id/lay_correo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <ImageView
+            android:id="@+id/iv_email"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img2" />
+
+        <TextView
+            android:id="@+id/tv_poca_cola"
+            style="@style/button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:gravity="center"
+            android:text="@string/poca_cola"
+            android:textColor="#80000000"
+            android:textSize="15dip" />
+    </LinearLayout>
+
+    <!-- No hay cola -->
+
+    <LinearLayout
+        android:id="@+id/lay_correo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <ImageView
+            android:id="@+id/iv_email"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/img1" />
+
+        <TextView
+            android:id="@+id/tv_no_hay_cola"
+            style="@style/button_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="3dp"
+            android:layout_marginLeft="5dp"
+            android:ems="10"
+            android:gravity="center"
+            android:text="@string/no_hay_cola"
+            android:textColor="#80000000"
+            android:textSize="15dip" />
+    </LinearLayout>
+
+</LinearLayout>

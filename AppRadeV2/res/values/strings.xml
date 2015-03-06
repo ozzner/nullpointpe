@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Apprade</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="intro_1">¡Paso #1!</string>
+    <string name="intro_2">¡Paso #2!</string>
+    <string name="alta_cola">¡Alta cola!</string>
+    <string name="cola_coderada">¡Cola moderada!</string>
+    <string name="poca_cola">¡Poca cola!</string>
+    <string name="no_hay_cola">¡No hay cola!</string>
+    <string name="about">Apprade [versión 1.0], tiene como finalidad ayudar a los usuarios en la elección de un lugar (Establecimiento),
+        que tenga baja cola o aforo de personas.
+       Developed by: nullPoint.pe</string>
+    <string name="logout">¿Seguro que deseas salir?</string>
+    <string name="search_hint">Buscar...</string>
+<!-- 	<string name="appId">130872068966</string> -->
+	<string name="appId">409693452541328</string>
+</resources>

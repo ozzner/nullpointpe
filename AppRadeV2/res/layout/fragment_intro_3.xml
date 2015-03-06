@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2EBE8E8"
+    tools:context=".activity.Usuario_Registro_Activity" >
+
+    <ScrollView
+        android:id="@+id/ScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" >
+
+        <LinearLayout
+            android:id="@+id/lay_contenedor"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingBottom="5dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="30dp" >
+
+            <ImageView
+                android:id="@+id/iv_no_hay_cola"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/account2" />
+
+            <LinearLayout
+                android:id="@+id/lay_personales"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:padding="7.5dp" >
+
+                <EditText
+                    android:id="@+id/et_nombres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Nombres"
+                    android:inputType="textCapWords"
+                    android:textSize="15dip" >
+                </EditText>
+
+                <LinearLayout
+                    android:id="@+id/lay_sexo_fecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+
+                    <LinearLayout
+                        android:id="@+id/lay_sexo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <RadioGroup
+                            android:id="@+id/rg_sexo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.29"
+                            android:paddingLeft="8dp" >
+
+                            <RadioButton
+                                android:id="@+id/rb_masculino"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:checked="true"
+                                android:text="Masculino"
+                                android:textColor="#E6000000"
+                                android:textSize="15dip" />
+
+                            <RadioButton
+                                android:id="@+id/rb_femenino"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Femenino"
+                                android:textColor="#f2000000"
+                                android:textSize="15dip" />
+                        </RadioGroup>
+
+                        <ImageButton
+                            android:id="@+id/imb_date"
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight=".2"
+                            android:background="#0000"
+                            android:cropToPadding="true"
+                            android:onClick="showTimePickerDialog"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/date" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_sesion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="7.5dp"
+                android:orientation="vertical"
+                android:padding="7.5dp" >
+
+                <EditText
+                    android:id="@+id/et_correo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="Correo electrónico"
+                    android:inputType="textEmailAddress"
+                    android:textSize="15dip" />
+
+                <EditText
+                    android:id="@+id/et_password_reg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Ingrese password"
+                    android:inputType="textPassword"
+                    android:textSize="15dip" />
+
+                <EditText
+                    android:id="@+id/et_pass_confirmar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Confirme password"
+                    android:inputType="textPassword"
+                    android:textSize="15dip" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_enviar"
+                style="@style/button_text"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/boton_formato_estandar"
+                android:text="Enviar"
+                android:textSize="14dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

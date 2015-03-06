@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.10"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_intro"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" >
+            </android.support.v4.view.ViewPager>
+
+<!--             <com.viewpagerindicator.CirclePageIndicator -->
+<!--                 android:id="@+id/indicator" -->
+<!--                 style="@style/CustomCirclePageIndicator" -->
+<!--                 android:layout_width="fill_parent" -->
+<!--                 android:layout_height="wrap_content" -->
+<!--                 android:background="#F2EBE8E8" -->
+<!--                 android:padding="5dip" /> -->
+
+
+<com.viewpagerindicator.LinePageIndicator
+                android:id="@+id/indicator"
+                style="@style/CustomLinePageIndicator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#F2EBE8E8"
+                android:padding="5dip" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout><!-- android:fillViewport="true" -->
+

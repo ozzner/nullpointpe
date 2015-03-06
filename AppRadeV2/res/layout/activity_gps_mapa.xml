@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+     xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"
+    android:id="@+id/lay_mapa"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:layout_weight="1"
+        class="com.google.android.gms.maps.SupportMapFragment"/>
+    
+<!--     <com.google.android.gms.ads.AdView -->
+<!--     xmlns:ads="http://schemas.android.com/apk/res-auto" -->
+<!--     android:id="@+id/adView" -->
+<!--     android:layout_width="match_parent" -->
+<!--     android:layout_height="wrap_content" -->
+<!--     ads:adUnitId="ca-app-pub-0771856019955508/3441120220" -->
+<!--     ads:adSize="BANNER"/> -->
+
+    <fragment
+        android:id="@+id/fragment_calificar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        class="com.apprade.activity.Fragment_Calificar"
+        tools:layout="@layout/fragment_calificar" />
+
+</LinearLayout>

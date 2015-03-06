@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="385dp"
+    android:background="@drawable/popup_calificacion_shape"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="385dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/lay_btn_comen"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_cancel_comen"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_action_cancel" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_est_datos"
+                android:layout_width="match_parent"
+                android:layout_height="115dp"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp" >
+
+                <TextView
+                    android:id="@+id/txt_nom_establecimiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxWidth="450dp"
+                    android:shadowColor="#f2000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="PARDOS CHICKEN S. A."
+                    android:textColor="#fff"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_distrito"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:maxWidth="450dp"
+                    android:text="Esto es una  dg fg dg dfg dgdg fdf "
+                    android:textColor="#f0f0f0"
+                    android:textSize="15dp" />
+
+                <ImageView
+                    android:id="@+id/iv_estado"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/img4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_insertar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/et_comentario"
+                    android:layout_width="250dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.56"
+                    android:background="@drawable/edit_text_shape"
+                   	android:hint="Escriba un comentario"
+                   	style="@style/comentario"
+                   	android:paddingLeft="8dp"
+                   	android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:textColor="#dfdbdb" >
+					
+                    <requestFocus />
+                </EditText>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_shape" >
+
+                    <ImageView
+                        android:id="@+id/iv_send"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical|left"
+                        android:src="@drawable/ic_action_send_now" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_listar"
+                android:layout_width="match_parent"
+                android:layout_height="165dp"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <ScrollView
+                    android:id="@+id/scrollView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical" >
+
+                        <ListView
+                            android:id="@+id/lv_comentarios"
+                            android:layout_width="match_parent"
+                            android:layout_height="165dp"
+                            android:layout_marginLeft="7dp"
+                            android:layout_marginRight="7dp"
+                            android:background="@drawable/edit_text_shape"
+                            android:listSelector="@android:color/transparent"
+                            android:paddingTop="5dp" >
+                        </ListView>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

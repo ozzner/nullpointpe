@@ -1,0 +1,82 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="android:Theme.Light"></style>
+
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+    <style name="CustomCirclePageIndicator">
+        <item name="fillColor">#3399FF</item>
+        <item name="strokeColor">#9f9f9f</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="radius">5dp</item>
+        <item name="centered">true</item>
+    </style>
+    
+    <style name="comentario" parent="android:Widget.EditText">
+    	<item name="android:textColorHint">#B8B8B8</item>
+    	<item name="android:textSize">15sp</item>
+    	<item name="android:layout_height">45dp</item>
+    	<item name="android:shadowColor">#FFFFFF</item>
+	</style>
+
+    <style name="CustomLinePageIndicator">
+        <item name="strokeWidth">4dp</item>
+        <item name="lineWidth">30dp</item>
+        <item name="unselectedColor">#90888888</item>
+        <item name="selectedColor">#FF3399ff</item>
+    </style>
+
+    <style name="CustomTitlePageIndicator">
+
+        <!-- color de fondo de toda la barra en la que se muestra el nombre -->
+        <item name="android:background">#eaeaea</item>
+        <!-- color de la barra indicadora, debajo de los nombres -->
+        <item name="footerColor">#b2cb39</item>
+        <!-- ancho linea inferior del footer -->
+        <item name="footerLineHeight">2dp</item>
+        <!-- ancho de la barra inferior al nombre -->
+        <item name="footerIndicatorHeight">4dp</item>
+        <!-- estilo del indicador inferior "none","triangle","underline" -->
+        <item name="footerIndicatorStyle">underline</item>
+        <!-- color del texto -->
+        <item name="android:textColor">@android:color/black</item>
+        <!-- color del texto de la página seleccionada -->
+        <item name="selectedColor">@android:color/black</item>
+        <!-- aplica bold al texto seleccionado -->
+        <item name="selectedBold">true</item>
+    </style>
+
+    <style name="AppDialog" parent="android:style/Theme.Dialog">
+
+        <!-- <item name="android:background">@color/transparente</item> -->
+         <item name="android:windowBackground">@color/transparente</item>
+        <item name="android:colorForeground">#fff</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AlertDialogCustom" parent="@android:style/Holo.Light.ButtonBar.AlertDialog">
+        <item name="android:textColor">#FFFF00</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="button_text">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">3dp</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">2</item>
+    </style>
+
+  
+
+</resources>

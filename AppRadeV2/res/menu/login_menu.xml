@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+   
+    <item 
+        android:id="@+id/log_login_action"
+        android:title="Login"
+        android:showAsAction="always|withText"
+        />
+
+    <item 
+        android:id="@+id/log_registro_action"
+        android:title="Registro"
+        android:icon="@drawable/ic_action_add_person"
+        android:showAsAction="ifRoom|withText"
+        />
+    <item 
+        android:id="@+id/log_about_action"
+        android:title="About"
+        android:icon="@drawable/about"
+        android:showAsAction="never"
+        />
+</menu>
