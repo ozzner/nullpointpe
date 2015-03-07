@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<resources xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
 
-<style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+    <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="android:windowActionBarOverlay">true</item>
@@ -12,23 +10,36 @@
 
     <!-- style for the action bar backgrounds -->
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar">
-        <item name="android:background">@color/my_blue</item>
-        <item name="background">@color/my_blue</item>
+        <item name="android:background">@color/my_gray_light</item>
+        <item name="background">@color/my_gray_light</item>
         <item name="android:titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
         <item name="android:subtitleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
         <item name="titleTextStyle">@style/MyTheme.ActionBar.TitleTextStyle</item>
         <item name="subtitleTextStyle">@style/MyTheme.ActionBar.SubTitleStyle</item>
     </style>
 
-    <style name="MyTheme.ActionBar.TitleTextStyle"  parent="@android:style/TextAppearance">
+    <!-- Titulo -->
+    <style name="MyTheme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/my_blue</item>
         <item name="android:textSize">15sp</item>
     </style>
 
-    <style name="MyTheme.ActionBar.SubTitleStyle"  parent="@android:style/TextAppearance">
+    <!-- subTitulo -->
+    <style name="MyTheme.ActionBar.SubTitleStyle" parent="@android:style/TextAppearance">
         <item name="android:textColor">@color/white</item>
         <item name="android:textSize">12sp</item>
     </style>
-    
+
+    <!-- spinner -->
+   <style name="MySpinnerStyle" parent="android:style/Widget.ListView.DropDown">
+    <item name="android:divider">#ff0000</item>
+    <item name="android:dividerHeight">5dp</item>
+</style>
+
+
+<style name="spinner_style" parent="@android:style/Theme.Holo.Light">
+    <item name="android:dropDownListViewStyle">@style/MySpinnerStyle</item>
+</style>
+
 
 </resources>

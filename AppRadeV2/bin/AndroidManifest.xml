@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="10"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="21" />
 
     <!-- PERMISOS DE INTERNET Y MAPAS -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

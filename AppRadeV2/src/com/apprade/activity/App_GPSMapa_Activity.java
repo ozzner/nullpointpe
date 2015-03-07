@@ -12,9 +12,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
-
 import android.support.v4.app.FragmentActivity;
 //import android.support.v4.widget.SearchViewCompatIcs.MySearchView;
 import android.util.Log;
@@ -187,7 +187,8 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 		ImageView ivAltaCola = (ImageView) findViewById(R.id.iv_alta_cola);
 
 		actionBar = getActionBar();
-
+		getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));  
+		
 		hideRates();
 		loadSpinnerNav();
 		
@@ -499,6 +500,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 			
 			map.getUiSettings().setZoomControlsEnabled(false);
 			map.setMyLocationEnabled(true);
+			map.getUiSettings().setMyLocationButtonEnabled(false);
 			map.setOnMarkerClickListener(this);
 			map.setOnInfoWindowClickListener(this);
 			map.setOnMapClickListener(this);
