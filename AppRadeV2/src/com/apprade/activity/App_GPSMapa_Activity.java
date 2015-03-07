@@ -30,9 +30,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.apprade.R;
+import com.apprade.R.color;
 import com.apprade.adapter.Adapter_InfoWindow;
 import com.apprade.adapter.Adapter_SpinnerItem;
 import com.apprade.adapter.Adapter_SpinnerNavActionBar;
@@ -839,8 +841,14 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	        searchView.setSubmitButtonEnabled(true);
 	        searchView.setOnQueryTextListener(this);
 
-//	        query = searchView.getQuery();
 	        
+	        int id = searchView.getContext()
+	                   .getResources()
+	                   .getIdentifier("android:id/search_src_text", null, null);
+			TextView textView = (TextView) searchView.findViewById(id);
+			textView.setTextColor(Color.BLACK);
+			
+//	        query = searchView.getQuery();
 //	        myToast(String.valueOf(query), 500);
 	        return super.onCreateOptionsMenu(menu);
 	}
@@ -975,7 +983,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 
 		arrAdpSpinner = new ArrayList<Adapter_SpinnerItem>();
 		arrAdpSpinner.add(new Adapter_SpinnerItem(R.drawable.ic_action_place,
-				"-- Seleccione --"));
+				"Seleccione..."));
 		arrAdpSpinner.add(new Adapter_SpinnerItem(R.drawable.fast_foods,
 				"Fast foods"));
 		arrAdpSpinner.add(new Adapter_SpinnerItem(R.drawable.cines, "Cines"));
@@ -1121,7 +1129,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 			    searchView.setQuery("", false);
 			    searchView.setFocusable(false);
 			    searchView.onActionViewCollapsed();
-			    
+			
 //				    searchMenuItem.collapseActionView();
 //				    isSearchFragmentVisible(false);
 				
@@ -1142,21 +1150,15 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	
 	class SearchAsync extends AsyncTask<Void, Boolean, Boolean>{
 
-		
-	
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			
-		
 			
 		}
 		
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			boolean b = false;
-			
-			
 			
 			return b;
 		}
