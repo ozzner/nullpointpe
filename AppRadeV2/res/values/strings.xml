@@ -15,6 +15,9 @@
        Developed by: nullPoint.pe</string>
     <string name="logout">¿Seguro que deseas salir?</string>
     <string name="search_hint">Buscar...</string>
-<!-- 	<string name="appId">130872068966</string> -->
-	<string name="appId">409693452541328</string>
+    <!-- <string name="appId">130872068966</string> -->
+    <string name="appId">409693452541328</string>
+    <string name="title_activity_mapa__add_establecimiento_">Nuevo establecimiento</string>
+    <string name="title_activity_popup__agregar_establecimiento">Ingresar datos de establecimiento</string>
+
 </resources>
