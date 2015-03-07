@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -73,6 +74,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	private static final String TAG_COLA_MODERADA = "Cola moderada";
 	private static final String TAG_ALTA_COLA = "Alta cola";
 	private static GoogleMap map;
+	private static GoogleMap mapAdd;
 	private static MarkerOptions markerOptions = new MarkerOptions();
 	private MenuItem refreshMenuItem;
 	Helper_GPS_Tracker gps;
@@ -500,12 +502,16 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 			map = ((SupportMapFragment) getSupportFragmentManager()
 					.findFragmentById(R.id.map)).getMap();
 			
-			map.getUiSettings().setZoomControlsEnabled(false);
+			map.getUiSettings().setZoomControlsEnabled(true);
 			map.setMyLocationEnabled(true);
 			map.getUiSettings().setMyLocationButtonEnabled(false);
 			map.setOnMarkerClickListener(this);
 			map.setOnInfoWindowClickListener(this);
 			map.setOnMapClickListener(this);
+			
+			mapAdd = ((SupportMapFragment) getSupportFragmentManager()
+					.findFragmentById(R.id.map)).getMap();
+		
 			
 			gps = new Helper_GPS_Tracker(App_GPSMapa_Activity.this);
 
@@ -544,7 +550,6 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 								.position(new LatLng(lat, lon))
 								.title(nom)
 								.snippet(dir + idEst)
-								.flat(true)
 								.alpha(0.8f)
 								.icon(BitmapDescriptorFactory
 										.fromResource(R.drawable.ic_map)));
@@ -820,6 +825,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 				}
 
 				actionBar.setSubtitle("Error!");
+				myToast("No se encontró ningún establecimiento.", 1000);
 			}
 		}
 
@@ -900,12 +906,22 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 		case R.id.logout_acc:
 			logout();
 			break;
+			
+		case R.id.action_add_map:
+			addMap();
+			break;
+			
 
 		default:
 			break;
 		}
 
 		return true;
+	}
+
+	private void addMap() {
+		Intent inAddMap = new Intent(getApplicationContext(), Mapa_AddEstablecimiento_Activity.class);
+		startActivity(inAddMap);
 	}
 
 	private void LoadInfo() {
@@ -953,7 +969,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	public final boolean onMarkerClick(final Marker arg0) {
 //		actionBar.hide();
 
-	map.setInfoWindowAdapter(new Adapter_InfoWindow(getLayoutInflater()));
+	    map.setInfoWindowAdapter(new Adapter_InfoWindow(getLayoutInflater()));
 		
 		String sAll = arg0.getSnippet();
 		String sIdEst = sAll.substring(sAll.length() - 4);
@@ -967,7 +983,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 		
 		setMyMarker(arg0);
 		showRates();
-		
+	   
 		return false;
 	}
 
@@ -1111,8 +1127,21 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	}
 	
 	@Override
-	public void onMapClick(LatLng arg0) {
+	public void onMapClick(LatLng position) {
 		hideRates();
+		
+		try {
+			mapAdd.clear();
+		} catch (Exception e) {
+		}
+		
+		mapAdd.addMarker(markerOptions
+					      .position(position)
+					      .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_add_marker_64))
+					      .draggable(true));
+		
+
+	
 //		Toast.makeText(getApplicationContext(),"Click Map!", Toast.LENGTH_LONG).show();
 	}
 
@@ -1120,7 +1149,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	@Override
 	public boolean onQueryTextSubmit(String query) {
 
-			myToast("Busqueda... " + query,1000);
+			myToast("Buscando... " + query,1000);
 //			finish();
 			if (!query.isEmpty()) {
 				map.clear();
