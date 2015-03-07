@@ -1130,15 +1130,15 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	public void onMapClick(LatLng position) {
 		hideRates();
 		
-		try {
-			mapAdd.clear();
-		} catch (Exception e) {
-		}
-		
-		mapAdd.addMarker(markerOptions
-					      .position(position)
-					      .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_add_marker_64))
-					      .draggable(true));
+//		try {
+//			mapAdd.clear();
+//		} catch (Exception e) {
+//		}
+//		
+//		mapAdd.addMarker(markerOptions
+//					      .position(position)
+//					      .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_add_marker_64))
+//					      .draggable(true));
 		
 
 	

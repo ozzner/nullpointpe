@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.app.ActionBar;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
 import android.location.Geocoder;
@@ -29,13 +30,19 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implements OnInfoWindowClickListener, OnMapClickListener, OnMarkerClickListener, OnMarkerDragListener {
 	
+	//Logging 
 	private static final String TAG = Mapa_AddEstablecimiento_Activity.class.getSimpleName();
+	
+	//Objects
 	private Helper_GPS_Tracker gps;
 	private GoogleMap addMap;
 	private Context _context;
-	private double latitude,longitude;
 	private ActionBar actionBar;
 	private static MarkerOptions markerOptions = new MarkerOptions();
+	
+	//Establisment values
+	private double dLatitude;
+	private double dLongitude;
 	
 	
 	@Override
@@ -49,7 +56,6 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 		setUpMap();
 		setUpGps();
 		
-		
 	}
 	
 	
@@ -61,7 +67,7 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 		
 		addMap.getUiSettings().setZoomControlsEnabled(true);
 		addMap.setMyLocationEnabled(true);
-		addMap.getUiSettings().setMyLocationButtonEnabled(false);
+		addMap.getUiSettings().setMyLocationButtonEnabled(true);
 		addMap.setOnMarkerClickListener(this);
 		addMap.setOnInfoWindowClickListener(this);
 		addMap.setOnMapClickListener(this);
@@ -74,11 +80,11 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 
 		if (gps.canGetLocation()) {
 
-			latitude = gps.getLatitude();
-			longitude = gps.getLongitude();
+			dLatitude = gps.getLatitude();
+			dLongitude = gps.getLongitude();
 
 			CameraUpdate camera1 = CameraUpdateFactory.newLatLngZoom(
-					new LatLng(latitude, longitude), 16f);
+					new LatLng(dLatitude, dLongitude), 16f);
 			addMap.animateCamera(camera1);
 
 		} else {
@@ -88,7 +94,10 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 	
 	
 	@Override
-	public boolean onMarkerClick(Marker arg0) {
+	public boolean onMarkerClick(Marker addMarkerClick) {
+		
+		
+		
 		
 		return false;
 	}
@@ -122,8 +131,15 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 	}
 
 	@Override
-	public void onInfoWindowClick(Marker arg0) {
-		// TODO Auto-generated method stub
+	public void onInfoWindowClick(Marker addMarkerInfwin) {
+		
+		Intent inPopupMap = new Intent(_context, Popup_AgregarEstablecimiento.class);
+		inPopupMap.putExtra("distrito", addMarkerInfwin.getTitle());
+		inPopupMap.putExtra("direccion", addMarkerInfwin.getSnippet());
+		inPopupMap.putExtra("latitude", addMarkerInfwin.getPosition().latitude);
+		inPopupMap.putExtra("longitude",  addMarkerInfwin.getPosition().longitude);
+		
+		startActivity(inPopupMap);
 	}
 
 
