@@ -903,12 +903,12 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 			LoadInfo();
 			break;
 
-		case R.id.logout_acc:
-			logout();
-			break;
-			
 		case R.id.action_add_map:
 			addMap();
+			break;
+			
+		case R.id.logout_acc:
+			logout();
 			break;
 			
 

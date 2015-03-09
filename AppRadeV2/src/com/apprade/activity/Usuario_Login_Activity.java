@@ -20,6 +20,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.Signature;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Base64;
@@ -126,7 +127,8 @@ ConnectionCallbacks, OnConnectionFailedListener {
 		setContentView(R.layout.activity_usuario_login);
 		
 //		genHashKey();
-
+		getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));  
+		
 		/* Inicializing views */
 		email = (EditText) findViewById(R.id.txtEmail);
 		password = (EditText) findViewById(R.id.txtPassword);

@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -21,6 +22,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
 import com.apprade.R;
 import com.apprade.adapter.Adapter_Dialog_Fragment;
 import com.apprade.dao.DAO_Usuario;
@@ -73,6 +75,8 @@ public class Usuario_Registro_Activity extends FragmentActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_intro_3);
 
+		getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));  
+		
 		btnSend = (Button) findViewById(R.id.btn_enviar);
 		etNombres = (EditText) findViewById(R.id.et_nombres);
 		etPassword = (EditText) findViewById(R.id.et_password_reg);

@@ -96,8 +96,13 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 	@Override
 	public boolean onMarkerClick(Marker addMarkerClick) {
 		
+		Intent inPopupMap = new Intent(_context, Popup_AgregarEstablecimiento.class);
+		inPopupMap.putExtra("distrito", addMarkerClick.getTitle());
+		inPopupMap.putExtra("direccion", addMarkerClick.getSnippet());
+		inPopupMap.putExtra("latitude", addMarkerClick.getPosition().latitude);
+		inPopupMap.putExtra("longitude",  addMarkerClick.getPosition().longitude);
 		
-		
+		startActivity(inPopupMap);
 		
 		return false;
 	}
@@ -113,20 +118,20 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 					      
 		Address address = null;
 		Geocoder coder = new Geocoder(_context);
-		List<Address> list_address;
+		List<Address> list_address = null;
 		
 		try {
 			list_address = coder.getFromLocation(position.latitude, position.longitude, 1);
-		    address = list_address.get(0);
-			
-			addMarker.setTitle(address.getSubLocality());
-			addMarker.setSnippet(address.getThoroughfare());
-			
 		} catch (IOException e) {
 			Log.e(TAG, "Error: " + e.getMessage());
+			return;
 		}
 		
-		addMarker.showInfoWindow();
+		  address = list_address.get(0);
+		  addMarker.setTitle(address.getSubLocality());
+		  addMarker.setSnippet(address.getThoroughfare());
+		
+		  addMarker.showInfoWindow();
 
 	}
 
@@ -157,20 +162,19 @@ public class Mapa_AddEstablecimiento_Activity extends FragmentActivity implement
 		
 		Address address = null;
 		Geocoder coder = new Geocoder(_context);
-		List<Address> list_address;
+		List<Address> list_address = null;
 		LatLng position = addMarker.getPosition();
 		
 		try {
-			list_address = coder.getFromLocation(position.latitude, position.longitude, 1);
-		    address = list_address.get(0);
-			
-			addMarker.setTitle(address.getSubLocality());
-			addMarker.setSnippet(address.getThoroughfare());
-			
+			list_address = coder.getFromLocation(position.latitude, position.longitude, 1);			
 		} catch (IOException e) {
 			Log.e(TAG, "Error: " + e.getMessage());
 		}
 		
+		address = list_address.get(0);
+		addMarker.setTitle(address.getSubLocality());
+		addMarker.setSnippet(address.getThoroughfare());
+
 		addMarker.showInfoWindow();
 	}
 

@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.util.Log;
@@ -21,6 +22,7 @@ import com.apprade.entity.Entity_Establecimiento;
 import com.apprade.helper.Helper_Http_Method;
 import com.apprade.helper.Helper_JSONParser;
 import com.apprade.helper.Helper_JSONStatus;
+import com.apprade.helper.Helper_constants;
 
 
 public class DAO_Establecimiento {
@@ -33,6 +35,7 @@ public class DAO_Establecimiento {
 	private static DAO_Conexion conn;
 	private static URI URL ;
 	private static final String ENTITY = "establecimiento";
+	private static final String TAG = DAO_Establecimiento.class.getSimpleName();
 	private static Map<Integer, String> map_IdEs_Cola = new HashMap<Integer,String>();
 
 	public DAO_Establecimiento(Entity_Establecimiento oEstable,
@@ -251,6 +254,55 @@ public class DAO_Establecimiento {
 		
 		return lista;
 	
+	}
+	/**@return int 1 if is correct.*/
+	public int enviarNuevoEstablecimiento(
+							String direccion,
+							String nombre,
+							String estado,
+							int cat_id,
+							int dis_id,
+							double latitude,
+							double longitude){
+		
+		
+		URL = URI.create(conn.getUrl() + Helper_constants.ESTABLECIMIENTOS);
+		InputStream in = null;
+		JSONObject oJson = null;
+		int iResult = -1;
+		
+		Log.e(TAG, URL.toString());
+		List<NameValuePair> parametros = new ArrayList<NameValuePair>();
+		
+		parametros.add( new BasicNameValuePair("direccion", direccion));
+		parametros.add( new BasicNameValuePair("nombre", nombre));
+		parametros.add( new BasicNameValuePair("estado", estado));
+		parametros.add( new BasicNameValuePair("cat_id", String.valueOf(cat_id)));
+		parametros.add( new BasicNameValuePair("dis_id",String.valueOf(dis_id)));
+		parametros.add( new BasicNameValuePair("latitude",String.valueOf(latitude)));
+		parametros.add( new BasicNameValuePair("longitude",String.valueOf(longitude)));
+	
+		
+		in =  oHttp.httpPost(URL, parametros);
+	    oJson = oParser.parserToJsonObject(in);
+	    
+		   
+		    try {
+		    	
+				 boolean bStatus = Boolean.parseBoolean(oJson.getString("error_status"));
+				 JSONObject jsonData =  oJson.getJSONObject("data");
+				 
+				 if (!bStatus) {
+					iResult = 1;
+					oJsonStatus.setMessage(jsonData.getString("message"));
+				}
+				
+			} catch (JSONException e) {
+				iResult = 0;
+				e.printStackTrace();
+			}
+		    
+		return iResult;
 	}
 
 	
