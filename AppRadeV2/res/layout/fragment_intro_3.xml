@@ -28,7 +28,7 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/account2" />
+                android:src="@drawable/img1" />
 
             <LinearLayout
                 android:id="@+id/lay_personales"
@@ -41,8 +41,10 @@
 
                 <EditText
                     android:id="@+id/et_nombres"
+                    style="@style/comentario"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:background="@drawable/edit_text_shape"
                     android:hint="Nombres"
                     android:inputType="textCapWords"
                     android:textSize="15dip" >
@@ -111,26 +113,34 @@
 
                 <EditText
                     android:id="@+id/et_correo"
+                    style="@style/comentario"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="1dp"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="3dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_shape"
                     android:hint="Correo electrónico"
                     android:inputType="textEmailAddress"
                     android:textSize="15dip" />
 
                 <EditText
                     android:id="@+id/et_password_reg"
+                    style="@style/comentario"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/edit_text_shape"
                     android:hint="Ingrese password"
                     android:inputType="textPassword"
                     android:textSize="15dip" />
 
                 <EditText
                     android:id="@+id/et_pass_confirmar"
+                    style="@style/comentario"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="3dp"
+                    android:background="@drawable/edit_text_shape"
                     android:hint="Confirme password"
                     android:inputType="textPassword"
                     android:textSize="15dip" />

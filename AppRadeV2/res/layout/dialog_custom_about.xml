@@ -17,7 +17,7 @@
         android:shadowDx="1"
         android:shadowDy="1"
         android:shadowRadius="2"
-        android:text="ABOUT APPRATE"
+        android:text="ABOUT RADE"
         android:textColor="#fff"
         android:textSize="23sp"
         android:textStyle="bold"

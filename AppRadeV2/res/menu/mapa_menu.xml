@@ -16,15 +16,16 @@
         android:icon="@drawable/ic_action_about"
         android:showAsAction="ifRoom|withText"
         android:title="Info"/>
-    <item
-        android:id="@+id/logout_acc"
-        android:icon="@drawable/ic_action_remove"
-        android:showAsAction="ifRoom|withText"
-        android:title="Salir"/>
+
     <item
         android:id="@+id/action_add_map"
         android:icon="@drawable/ic_add_marker_64"
         android:showAsAction="ifRoom|withText"
         android:title="Agregar establ."/>
-
+    
+    <item
+        android:id="@+id/logout_acc"
+        android:icon="@drawable/ic_action_remove"
+        android:showAsAction="ifRoom|withText"
+        android:title="Salir"/>
 </menu>

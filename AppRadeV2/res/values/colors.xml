@@ -5,8 +5,10 @@
     <color name="transparente2">#90BDDEDB</color>
     <color name="my_blue">#428BCA</color>
     <color name="my_blue_light">#80428BCA</color>
+    <color name="my_blue_transparent_70">#4D428BCA</color>
     <color name="my_gray_light">#80B9B9B9</color>
     <color name="my_gray">#888888</color>
     <color name="white">#ffffff</color>
+    <color name="whitesmoke">#F5F5F5</color>
 
 </resources>

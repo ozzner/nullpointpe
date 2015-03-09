@@ -21,9 +21,9 @@
 
             <ImageView
                 android:id="@+id/iv_no_hay_cola"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/account" />
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/img1" />
 
             <LinearLayout
                 android:id="@+id/lay_personales"
@@ -37,10 +37,12 @@
                 <EditText
                     android:id="@+id/et_nombres"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:hint="Nombres"
-                    android:inputType="textPersonName" >
-
+                    android:inputType="textPersonName" 
+                    android:background="@drawable/edit_text_shape"
+                    style="@style/comentario">
+					
                     <requestFocus />
                 </EditText>
 
@@ -105,24 +107,32 @@
                 <EditText
                     android:id="@+id/et_correo"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:hint="Correo electrónico"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress" 
+                     android:background="@drawable/edit_text_shape"
+                           android:layout_marginBottom="3dp"
+                    style="@style/comentario"/>
 
                 <EditText
                     android:id="@+id/et_password_reg"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:hint="Ingrese password"
                     android:inputType="textPassword"
+                     android:background="@drawable/edit_text_shape"
+                    style="@style/comentario"
+                          android:layout_marginBottom="3dp"
                      />
 
                 <EditText
                     android:id="@+id/et_pass_confirmar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:hint="Confirme password"
                     android:inputType="textPassword"
+                     android:background="@drawable/edit_text_shape"
+                    style="@style/comentario"
                    />
             </LinearLayout>
 

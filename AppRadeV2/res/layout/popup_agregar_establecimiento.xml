@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_calificacion_shape"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/lay_btn_comen"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn_cancel_local"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_margin="3dp"
+                    android:background="@drawable/ic_action_cancel"
+                    android:onClick="cancelarEnvioClick" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_insertar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/et_direccion"
+                    style="@style/comentario"
+                    android:layout_width="250dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.56"
+                    android:background="@drawable/edit_text_shape"
+                    android:ems="10"
+                    android:hint="Dirección"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/whitesmoke" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_insertar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/et_latitude"
+                    style="@style/comentario"
+                    android:layout_width="250dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.56"
+                    android:background="@drawable/edit_text_shape"
+                    android:ems="10"
+                    android:hint="Latitud establecimiento"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="8dp"
+                    android:textColor="#dfdbdb"
+                    android:textSize="12sp" >
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/et_longitude"
+                    style="@style/comentario"
+                    android:layout_width="250dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.56"
+                    android:background="@drawable/edit_text_shape"
+                    android:ems="10"
+                    android:hint="Longitud de establecimiento"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="8dp"
+                    android:textColor="#dfdbdb"
+                    android:textSize="12sp" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_insertar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/et_distrito"
+                    style="@style/comentario"
+                    android:layout_width="250dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.56"
+                    android:background="@drawable/edit_text_shape"
+                    android:ems="10"
+                    android:hint="Distrito"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/whitesmoke" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_insertar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/et_nombre"
+                    style="@style/comentario"
+                    android:layout_width="250dp"
+                    android:layout_height="49dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="0.56"
+                    android:background="@drawable/edit_text_shape"
+                    android:ems="10"
+                    android:hint="Nombre"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="8dp"
+                    android:textColor="@color/whitesmoke" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_comen_listar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="7dp"
+                    android:layout_marginRight="7dp"
+                    android:orientation="vertical" >
+
+                    <Spinner
+                        android:id="@+id/spin_distritos"
+                        style="@style/comentario"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/edit_text_shape"
+                        android:paddingLeft="8dp"
+                        android:textColor="#ff0000" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="3dp" >
+
+                <Button
+                    android:id="@+id/btn_send_local"
+                    style="@style/button_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:background="@drawable/selector_button_green"
+                    android:text="Enviar" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
