@@ -1,5 +1,7 @@
 package com.apprade.helper;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
@@ -31,7 +33,7 @@ public class Helper_GPS_Tracker extends Service implements LocationListener {
 	double longitude; // longitude
 
 	// The minimum distance to change Updates in meters
-	private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 5; // 10 meters
+	private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
 
 	// The minimum time between updates in milliseconds
 	private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
@@ -44,6 +46,7 @@ public class Helper_GPS_Tracker extends Service implements LocationListener {
 		getLocation();
 	}
 
+	
 	public Location getLocation() {
 		try {
 			locationManager = (LocationManager) mContext
@@ -61,29 +64,14 @@ public class Helper_GPS_Tracker extends Service implements LocationListener {
 				// no network provider is enabled
 			} else {
 				this.canGetLocation = true;
-				if (isNetworkEnabled) {
-					locationManager.requestLocationUpdates(
-							LocationManager.NETWORK_PROVIDER,
-							MIN_TIME_BW_UPDATES,
-							MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-					Log.d("Network", "Network");
-					if (locationManager != null) {
-						location = locationManager
-								.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-						if (location != null) {
-							latitude = location.getLatitude();
-							longitude = location.getLongitude();
-						}
-					}
-				}
 				// if GPS Enabled get lat/long using GPS Services
-				if (isGPSEnabled) {
-					if (location == null) {
+				if (isGPSEnabled && isNetworkEnabled) {
+					
 						locationManager.requestLocationUpdates(
 								LocationManager.GPS_PROVIDER,
 								MIN_TIME_BW_UPDATES,
 								MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
-						Log.d("GPS Enabled", "GPS Enabled");
+//						Log.e("GPS Enabled", "GPS Enabled");
 						if (locationManager != null) {
 							location = locationManager
 									.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -91,6 +79,21 @@ public class Helper_GPS_Tracker extends Service implements LocationListener {
 								latitude = location.getLatitude();
 								longitude = location.getLongitude();
 							}
+						}
+					}
+				
+				if (isNetworkEnabled && !isGPSEnabled) {
+					locationManager.requestLocationUpdates(
+							LocationManager.NETWORK_PROVIDER,
+							MIN_TIME_BW_UPDATES,
+							MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+//					Log.e("Network", "Network");
+					if (locationManager != null) {
+						location = locationManager
+								.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+						if (location != null) {
+							latitude = location.getLatitude();
+							longitude = location.getLongitude();
 						}
 					}
 				}
@@ -179,8 +182,33 @@ public class Helper_GPS_Tracker extends Service implements LocationListener {
         alertDialog.show();
 	}
 
+	/**
+	 * getDistance is used to return the distance in kilometers between two
+	 * location points.
+	 */
+	public static double getDistance(LatLng PreviousLocation,
+			LatLng CurrentLocation) { // in m
+
+		double lat1 = PreviousLocation.latitude;
+		double lon1 = PreviousLocation.longitude;
+		double lat2 = CurrentLocation.latitude;
+		double lon2 = CurrentLocation.longitude;
+
+		double latA = Math.toRadians(lat1);
+		double lonA = Math.toRadians(lon1);
+		double latB = Math.toRadians(lat2);
+		double lonB = Math.toRadians(lon2);
+
+		double cosAng = (Math.cos(latA) * Math.cos(latB) * Math
+				.cos(lonB - lonA)) + (Math.sin(latA) * Math.sin(latB));
+		double ang = Math.acos(cosAng);
+		double dist = ang * 6371 * 1000; // earth's radius!
+		return dist;
+	}
+	
 	@Override
 	public void onLocationChanged(Location location) {
+		getLocation();
 	}
 
 	@Override

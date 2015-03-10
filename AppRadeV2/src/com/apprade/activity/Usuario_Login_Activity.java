@@ -102,7 +102,7 @@ ConnectionCallbacks, OnConnectionFailedListener {
     private SignInButton btnGoogle;
 	private String personName;
 	private int personGender;
-	private String personUserID;
+//	private String personUserID;
 	private String personBirthday;
 	private String sSex;
 	
@@ -117,7 +117,6 @@ ConnectionCallbacks, OnConnectionFailedListener {
 	public Usuario_Login_Activity() {
 		super();
 		oRoutine = new Helper_SubRoutines();
-		dao = new DAO_Usuario();
 		rank = new Entity_Ranking();
 	}
 
@@ -125,8 +124,9 @@ ConnectionCallbacks, OnConnectionFailedListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_usuario_login);
+		dao = new DAO_Usuario(getApplicationContext());
 		
-//		genHashKey();
+		genHashKey();
 		getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));  
 		
 		/* Inicializing views */
@@ -680,7 +680,7 @@ ConnectionCallbacks, OnConnectionFailedListener {
 				personName = currentPerson.getDisplayName();
 				sPassword = currentPerson.getId();
 				personGender = currentPerson.getGender();
-				personUserID = currentPerson.getId();
+//				personUserID = currentPerson.getId();
 				personBirthday = currentPerson.getBirthday();
 				sEmail = Plus.AccountApi.getAccountName(mGoogleApiClient);
 

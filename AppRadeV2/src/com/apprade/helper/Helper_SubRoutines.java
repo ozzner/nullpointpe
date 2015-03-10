@@ -152,7 +152,7 @@ public class Helper_SubRoutines {
 		
 		Double Cos_Lon2Lon1 = Math.cos(Lon2_Rad - Lon1_Rad);
 	
-		Double difDistancia = 6378 * 1000 * (Math.acos((Sin_Lat1 * Sin_Lat2)
+		Double difDistancia = 6371 * 1000 * (Math.acos((Sin_Lat1 * Sin_Lat2)
 				+ (Cos_Lat1 * Cos_Lat2 * Cos_Lon2Lon1)));
 		
 		return difDistancia;

@@ -21,7 +21,7 @@ import android.util.Log;
  */
 public class Helper_Http_Method {
 	
-private static int TIMEOUT = 1000*60*10; /*milisegundos*/
+private static final int TIMEOUT = 1000*60*10; /*milisegundos*/
 private static boolean bTimeout;
 
 

@@ -255,6 +255,8 @@ public class DAO_Establecimiento {
 		return lista;
 	
 	}
+	
+	
 	/**@return int 1 if is correct.*/
 	public int enviarNuevoEstablecimiento(
 							String direccion,
@@ -265,8 +267,7 @@ public class DAO_Establecimiento {
 							double latitude,
 							double longitude){
 		
-		
-		URL = URI.create(conn.getUrl() + Helper_constants.ESTABLECIMIENTOS);
+		URL = URI.create(conn.getUrl() + DAO_Conexion.ESTABLECIMIENTOS);
 		InputStream in = null;
 		JSONObject oJson = null;
 		int iResult = -1;

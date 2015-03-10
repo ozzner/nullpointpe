@@ -57,7 +57,7 @@ public class Fragment_Intro_3 extends Fragment implements ValidationListener {
 	private DAO_Usuario dao;
 
 	public Fragment_Intro_3() {
-		dao = new DAO_Usuario();
+
 		oRoutine = new Helper_SubRoutines();
 		oDialFrag = new Adapter_Dialog_Fragment();
 	}
@@ -66,7 +66,8 @@ public class Fragment_Intro_3 extends Fragment implements ValidationListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_intro_3, container, false);
-
+		dao = new DAO_Usuario(getActivity());
+		
 		btnSend = (Button) v.findViewById(R.id.btn_enviar);
 		etNombres = (EditText) v.findViewById(R.id.et_nombres);
 		etPassword = (EditText) v.findViewById(R.id.et_password_reg);

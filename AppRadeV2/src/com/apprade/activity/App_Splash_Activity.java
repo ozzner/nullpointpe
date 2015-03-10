@@ -6,29 +6,26 @@ import com.apprade.R;
 import com.apprade.helper.Helper_SharedPreferences;
 import android.app.Activity;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 public class App_Splash_Activity extends Activity {
 
-	private static final int TIEMPO_DEL_SPLASH = 1100;
-	private Helper_SharedPreferences dao;
+	private static final int TIEMPO_DEL_SPLASH = 1900;
+	private Helper_SharedPreferences pref;
 	private String sStatus;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.activity_splash);
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 		
 		TimerTask task = new TimerTask() {
 		  
 			@Override
 			public void run() {
 				
-				 dao = new Helper_SharedPreferences();
-				 sStatus = dao.checkLogin(getApplicationContext());
+				 pref = new Helper_SharedPreferences();
+				 sStatus = pref.checkLogin(getApplicationContext());
 			 
 				switch (sStatus) {
 					
@@ -53,10 +50,10 @@ public class App_Splash_Activity extends Activity {
 				default:
 					break;
 				}
-		
-				finish();
+			
 				overridePendingTransition(R.anim.anim_in_splash,
 						R.anim.anim_out_splash);
+				finish();
 			}
 		};
 

@@ -66,7 +66,6 @@ public class Usuario_Registro_Activity extends FragmentActivity implements
 	public Usuario_Registro_Activity() {
 		super();
 		oDialFrag = new Adapter_Dialog_Fragment();
-		dao = new DAO_Usuario();
 		oRoutine = new Helper_SubRoutines();
 	}
 
@@ -74,7 +73,7 @@ public class Usuario_Registro_Activity extends FragmentActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.fragment_intro_3);
-
+		dao = new DAO_Usuario(getApplicationContext());
 		getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));  
 		
 		btnSend = (Button) findViewById(R.id.btn_enviar);

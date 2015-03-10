@@ -4,16 +4,20 @@ import java.io.InputStream;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.apache.http.NameValuePair;
 import org.apache.http.client.utils.URLEncodedUtils;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONObject;
+
+import android.content.Context;
+import android.util.Log;
+
+import com.apprade.Apprade_Application;
 import com.apprade.entity.Entity_Usuario;
 import com.apprade.helper.Helper_Http_Method;
 import com.apprade.helper.Helper_JSONParser;
 import com.apprade.helper.Helper_JSONStatus;
-
-import android.util.Log;
 
 public class DAO_Usuario{
 	
@@ -24,13 +28,19 @@ public class DAO_Usuario{
 	public  Helper_JSONStatus oJsonStatus;
 	private Helper_JSONParser oParser;
 	private Helper_Http_Method oHttp;
+	private Context _context;
+	//application
+	final Apprade_Application apprade;
 	
-	public DAO_Usuario() {
+	
+	public DAO_Usuario(Context ctx) {
+		this._context = ctx;
 		oUsuario = new Entity_Usuario();
 		oJsonStatus =  new Helper_JSONStatus();
 		oParser = new Helper_JSONParser();
 		oHttp = new Helper_Http_Method();
 		conn = new DAO_Conexion();
+		apprade = (Apprade_Application)ctx.getApplicationContext();
 	}
 
 	
@@ -72,7 +82,13 @@ public class DAO_Usuario{
 					oUsuario.setRate(Integer.parseInt(oUserData.getString("rate")));
 					oUsuario.setUid(oUserData.getString("Api_key"));
 					
+					//global session
+					apprade.setYour_email(oUserData.getString("email"));
+					apprade.setYour_name(oUserData.getString("name"));
+					apprade.setYour_apikey(oUserData.getString("Api_key"));
+					
 					bEstado = true;
+					
 					
 				}else{
 					

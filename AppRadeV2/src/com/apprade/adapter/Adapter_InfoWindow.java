@@ -5,6 +5,7 @@
 package com.apprade.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,9 +15,12 @@ import com.apprade.R;
 import com.apprade.helper.Helper_GPS_Tracker;
 import com.apprade.helper.Helper_SubRoutines;
 import com.google.android.gms.maps.GoogleMap.InfoWindowAdapter;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 
 public class Adapter_InfoWindow implements InfoWindowAdapter {
+	
+	private static final String TAG = Adapter_InfoWindow.class.getSimpleName();
 	LayoutInflater inflater = null;
 	private static String cola;
 	private static int idEst;
@@ -25,6 +29,9 @@ public class Adapter_InfoWindow implements InfoWindowAdapter {
 	private Helper_SubRoutines routine;
 	private Helper_GPS_Tracker gps;
 	private Context _context;
+	private LatLng lat_lon;
+	
+	
 	/**
 	 * @param inflater
 	 */
@@ -34,7 +41,7 @@ public class Adapter_InfoWindow implements InfoWindowAdapter {
 		this.inflater = inflater;
 		this._context = inflater.getContext();
 		this.routine = new Helper_SubRoutines();
-		this.gps = new Helper_GPS_Tracker(_context);
+		gps = new Helper_GPS_Tracker(_context);
 	}
 
 	public Adapter_InfoWindow() {
@@ -48,9 +55,10 @@ public class Adapter_InfoWindow implements InfoWindowAdapter {
 		return null;
 	}
 
+	@SuppressWarnings("null")
 	@Override
-	public View getInfoWindow(Marker arg0) {
-		
+	public View getInfoWindow(Marker marker) {
+	
 		View infoWindows = inflater.inflate(
 				R.layout.adapter_calificacion_infowindow, null);
 
@@ -61,20 +69,21 @@ public class Adapter_InfoWindow implements InfoWindowAdapter {
 		ImageView ivCola = (ImageView) infoWindows.findViewById(R.id.imgMarker);
 		
 
-		String sAll = arg0.getSnippet();
+		String sAll = marker.getSnippet();
 		String sIdEst = sAll.substring(sAll.length() - 4);
 		String sDirec = sAll.substring(0, sAll.length() - 4);
 		
-		double lat_est = arg0.getPosition().latitude;
-		double lon_est = arg0.getPosition().longitude;
 		double lat_gps = gps.getLatitude();
 		double lon_gps = gps.getLongitude();
+		lat_lon = new LatLng(lat_gps, lon_gps);
 		
-		double dDist = routine.distanceBetweenPositions(lat_est, lon_est, lat_gps, lon_gps);
+		
+//		double dDist = Helper_GPS_Tracker.getDistance(marker.getPosition(), lat_lon);
+		double dDist = routine.distanceBetweenPositions(lat_gps, lon_gps, marker.getPosition().latitude, marker.getPosition().longitude);
 		String sDist = routine.converDistance(dDist);
 		
 		tvDistance.setText("Distancia: " + sDist);
-		tvNombre.setText(arg0.getTitle());
+		tvNombre.setText(marker.getTitle());
 		tvDireccion.setText(sDirec);
 		setIdEst(Integer.parseInt(sIdEst));
 		
@@ -103,7 +112,10 @@ public class Adapter_InfoWindow implements InfoWindowAdapter {
 			break;
 		}
 
+		Log.e(TAG, "LatLng " + marker.getPosition());
+		Log.e(TAG, dDist + "Km");
 		return (infoWindows);
+	
 	}
 
 	/**

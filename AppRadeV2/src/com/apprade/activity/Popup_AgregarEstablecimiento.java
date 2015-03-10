@@ -23,6 +23,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.apprade.Apprade_Application;
 import com.apprade.R;
 import com.apprade.dao.DAO_Establecimiento;
 import com.apprade.entity.Entity_Comentario;
@@ -51,6 +52,7 @@ public class Popup_AgregarEstablecimiento extends Activity implements OnClickLis
 		private double dLongitude;
 		
 	//Generics
+		private Apprade_Application app_rade;
 		private Context _context;
 		private static final String DEFAULT_STATUS = "pendiente";
 		private static final String TAG = Popup_AgregarEstablecimiento.class.getSimpleName();
@@ -67,6 +69,7 @@ public class Popup_AgregarEstablecimiento extends Activity implements OnClickLis
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.popup_agregar_establecimiento);
+		app_rade = (Apprade_Application)getApplication();
 		
 		initViews();
 		savedInstanceState = getIntent().getExtras();
@@ -192,10 +195,10 @@ public class Popup_AgregarEstablecimiento extends Activity implements OnClickLis
 		}
 		
 		if (sDireccion.isEmpty()) 
-			sDireccion = "Contacto móvil";
+			sDireccion = app_rade.getYour_email();
 		
 		if (sDistrito.isEmpty()) 
-			sDistrito = "Contacto móvil";
+			sDistrito = app_rade.getYour_email();
 		
 		return bOk;
 	}

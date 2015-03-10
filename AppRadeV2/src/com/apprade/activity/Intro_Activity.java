@@ -60,14 +60,13 @@ public class Intro_Activity extends FragmentActivity implements
 	public Intro_Activity() {
 		
 		oRoutine  = new Helper_SubRoutines();
-		dao = new DAO_Usuario();
 		rank = new Entity_Ranking();
 	}
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		dao = new DAO_Usuario(getApplicationContext());
 		getActionBar().setIcon(new ColorDrawable(getResources().getColor(android.R.color.transparent)));  
 		
 		if (!oRoutine.isOnline(getApplicationContext())) 
@@ -192,7 +191,7 @@ public class Intro_Activity extends FragmentActivity implements
 
 			
 			/* When positive (yes/ok) is clicked */
-			alertDialog.setPositiveButton("Iniciar!",
+			alertDialog.setPositiveButton("¡Iniciar!",
 					new DialogInterface.OnClickListener() {
 				
 						@Override

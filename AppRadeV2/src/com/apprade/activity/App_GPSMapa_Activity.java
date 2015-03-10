@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.SearchManager;
@@ -12,18 +11,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-//import android.support.v4.widget.SearchViewCompatIcs.MySearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -34,8 +30,8 @@ import android.widget.SearchView.OnQueryTextListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.apprade.Apprade_Application;
 import com.apprade.R;
-import com.apprade.R.color;
 import com.apprade.adapter.Adapter_InfoWindow;
 import com.apprade.adapter.Adapter_SpinnerItem;
 import com.apprade.adapter.Adapter_SpinnerNavActionBar;
@@ -58,12 +54,10 @@ import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.internal.IGoogleMapDelegate;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.plus.Plus;
 
 public class App_GPSMapa_Activity extends FragmentActivity implements
 		OnMarkerClickListener, OnInfoWindowClickListener,
@@ -74,7 +68,6 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	private static final String TAG_COLA_MODERADA = "Cola moderada";
 	private static final String TAG_ALTA_COLA = "Alta cola";
 	private static GoogleMap map;
-	private static GoogleMap mapAdd;
 	private static MarkerOptions markerOptions = new MarkerOptions();
 	private MenuItem refreshMenuItem;
 	Helper_GPS_Tracker gps;
@@ -113,9 +106,11 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	int arraymapas[] = new int[1000];
 	String titulo;
 	private LinearLayout lay_rates;
-	private final double DISTANCE_MIN_TO_RATE = 10000;
+	private final int DISTANCE_MIN_TO_RATE = 500;
 	private SearchView searchView;
-
+	private Apprade_Application app_rade;
+	
+	
 	/* SET GET */
 	/**
 	 * @return the arrValue
@@ -175,6 +170,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 		oRoutine = new Helper_SubRoutines();
 		oPrefe = new Helper_SharedPreferences();
 		oInfoWindow = new Adapter_InfoWindow();
+		app_rade = (Apprade_Application)getApplication();
 
 	}
 
@@ -184,7 +180,8 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_gps_mapa_v2);
-
+		app_rade = (Apprade_Application)getApplicationContext();
+		
 		ImageView ivNoHayCola = (ImageView) findViewById(R.id.iv_no_hay_cola);
 		ImageView ivPocaCola = (ImageView) findViewById(R.id.iv_poca_cola);
 		ImageView ivColaModerada = (ImageView) findViewById(R.id.iv_cola_moderada);
@@ -197,7 +194,7 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 		loadSpinnerNav();
 		
 		if (oRoutine.isOnline(getApplicationContext())) 
-//			loadAdView();
+			loadAdView();
 		
 	
 
@@ -295,6 +292,9 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 			usuarioID = Integer.parseInt(datos.get(2));
 			String sName = datos.get(0).toString();
 			actionBar.setTitle(sName);
+			
+			app_rade.setYour_name(datos.get(0));//name
+			app_rade.setYour_email(datos.get(1));//email
 		}
 		setUpMapIfNeeded();
 
@@ -453,8 +453,8 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 					iReport = 1;
 					Log.e(TAG,"Distance " + dDistance);
 				}else{
-					showMyToast("Puede calificar si está a " 
-								+ DISTANCE_MIN_TO_RATE + " m. del establecimiento");
+					showMyToast("No puede calificar si está a más de " 
+								+ DISTANCE_MIN_TO_RATE + " m");
 					iReport = -2;
 					Log.e(TAG,"Distance " + dDistance);
 				}
@@ -509,8 +509,6 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 			map.setOnInfoWindowClickListener(this);
 			map.setOnMapClickListener(this);
 			
-			mapAdd = ((SupportMapFragment) getSupportFragmentManager()
-					.findFragmentById(R.id.map)).getMap();
 		
 			
 			gps = new Helper_GPS_Tracker(App_GPSMapa_Activity.this);
@@ -933,7 +931,6 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 		LayoutInflater layInfo = this.getLayoutInflater();
 		v = layInfo.inflate(R.layout.dialog_custom_info, null);
 		adInfo.setView(v);
-
 		adInfo.setNeutralButton("Ok", new DialogInterface.OnClickListener() {
 
 			@Override
@@ -1129,22 +1126,10 @@ public class App_GPSMapa_Activity extends FragmentActivity implements
 	@Override
 	public void onMapClick(LatLng position) {
 		hideRates();
-		
-//		try {
-//			mapAdd.clear();
-//		} catch (Exception e) {
-//		}
-//		
-//		mapAdd.addMarker(markerOptions
-//					      .position(position)
-//					      .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_add_marker_64))
-//					      .draggable(true));
-		
-
-	
-//		Toast.makeText(getApplicationContext(),"Click Map!", Toast.LENGTH_LONG).show();
 	}
-
+	
+	
+	
 	/************ SEARCH *************/
 	@Override
 	public boolean onQueryTextSubmit(String query) {
