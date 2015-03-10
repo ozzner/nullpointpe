@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="#ffa700"
         android:gravity="center"
         android:shadowColor="#f2000000"
@@ -19,21 +19,11 @@
         android:shadowRadius="2"
         android:text="INFO RADE"
         android:textColor="#fff"
-        android:textSize="23sp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:typeface="monospace" />
 
-    <!-- Logo -->
-
-    <ImageView
-        android:id="@+id/img_check_user"
-        android:layout_width="65dp"
-        android:layout_height="25dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/logo" >
-    </ImageView>
+ 
 
     <LinearLayout
         android:id="@+id/lay_correo"
@@ -42,6 +32,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginTop="17dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp" >
 

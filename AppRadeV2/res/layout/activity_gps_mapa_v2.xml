@@ -54,8 +54,8 @@
 
             <ImageView
                 android:id="@+id/iv_no_hay_cola"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
                 android:src="@drawable/img1" />
         </LinearLayout>
 
@@ -67,8 +67,8 @@
 
             <ImageView
                 android:id="@+id/iv_poca_cola"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
                 android:src="@drawable/img2" />
         </LinearLayout>
 
@@ -86,8 +86,8 @@
 
             <ImageView
                 android:id="@+id/iv_cola_moderada"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
                 android:src="@drawable/img3" />
         </LinearLayout>
 
@@ -99,8 +99,8 @@
 
             <ImageView
                 android:id="@+id/iv_alta_cola"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
                 android:src="@drawable/img4" />
         </LinearLayout>
     </LinearLayout>

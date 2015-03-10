@@ -10,12 +10,12 @@
     <string name="cola_coderada">¡Cola moderada!</string>
     <string name="poca_cola">¡Poca cola!</string>
     <string name="no_hay_cola">¡No hay cola!</string>
-    <string name="about">Apprade [versión 1.0], tiene como finalidad ayudar a los usuarios en la elección de un lugar (Establecimiento),
-        que tenga baja cola o aforo de personas.
-       Developed by: nullPoint.pe</string>
+    <string name="about">
+        Apprade [versión 2.0], tiene como finalidad facilitar la elección de un lugar (Establecimiento),
+        que tenga baja cola o aforo de personas.\n\n
+        Developed by:\n rsantillanc@gmail.com \n jmandujano.n@gmail.com</string>
     <string name="logout">¿Seguro que deseas salir?</string>
     <string name="search_hint">Buscar...</string>
-    <!-- <string name="appId">130872068966</string> -->
     <string name="appId">409693452541328</string>
     <string name="title_activity_mapa__add_establecimiento_">Nuevo establecimiento</string>
     <string name="title_activity_popup__agregar_establecimiento">Ingresar datos de establecimiento</string>
