@@ -1,0 +1,312 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Volkhov:400italic,700);
+
+@font-face {
+    font-family: 'ubuntu_monoregular';
+    src: url('../src/font/ubuntumono-r-webfont.eot');
+    src: url('../src/font/ubuntumono-r-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../src/font/ubuntumono-r-webfont.woff2') format('woff2'),
+    url('../src/font/ubuntumono-r-webfont.woff') format('woff'),
+    url('../src/font/ubuntumono-r-webfont.ttf') format('truetype'),
+    url('../src/font/ubuntumono-r-webfont.svg#ubuntu_monoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/************* GENERAL DEFAULT SETTINGS ***************/
+*{
+    padding: 0px;
+    margin: 0px;
+    font-size: 16px;
+    font-family: 'PT Sans Narrow';
+}
+
+img,video {
+    max-width: 100%;
+}
+
+
+/************* GENERAL NAV LIST ***************/
+.nav_list{
+    /*background: rgba(34,144,201,1);*/
+    /*background: whitesmoke;*/
+    height: 100%;
+    background:#888;
+    width: 100%;
+    padding: 2px;
+
+}
+
+
+/************* MyCONFIGURATIONS ***************/
+
+.MyTable tr:nth-child(even) { /*(even) or (2n 0)*/
+    background:rgba(185,185,185,0.15);
+}
+
+.MyTable tr:nth-child(odd) { /*(odd) or (2n 1)*/
+
+}
+
+.MyTable thead{
+    opacity: 0.7;
+}
+
+
+/*++++++++++++++ MyInputs ++++++++++++++*/
+
+.MyInput, .MyDropdown{
+    height: 40px;
+    width: 200px;
+    border:solid 2px #ddd;
+    margin: 2px !important;
+    padding: 5px;
+    padding-left: 10px;
+}
+
+.MyInput:input{
+    border:solid 2px #ccc !important;
+
+}
+
+.MyInput:focus,.MyDropdown:focus{
+    outline: #ccc !important;
+    color:#02a902;
+    /*background: rgba(221,221,221,0.3) !important;*/
+    background: rgba(100,149,237,0.015) !important;
+    /*border:solid 2px rgba(100,149,237,0.5) !important;*/
+    border:solid 2px rgba(2,169,2,0.5) !important;
+    -webkit-box-shadow:0px 0px 4px 0px rgba(2,169,2,0.7) !important;
+    -moz-box-shadow:  0px 0px 4px 0px rgba(2,169,2,0.7) !important;
+    box-shadow: 0px 0px 4px 0px rgba(2,169,2,0.7) !important;
+}
+
+.MyInputRadio{
+    height: 15px;
+    width:60px;
+}
+
+.MyInputHidden{
+
+}
+
+.MyButton_green{
+
+    background: #02a902;
+    color: whitesmoke;
+    height: 35px;
+    width: 130px;
+    /*padding: 5px;*/
+    border:solid 2px #02a902;
+    /*    border-bottom: solid 3px #058705;*/
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 17px;
+
+    -webkit-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -ms-transition:all .2s ease;
+    transition:all .2s ease;
+}
+
+.MyButton_green:active{
+    border-radius: 2px;
+    margin-top: 1px !important;
+}
+
+.MyButton_green:hover{
+    border-radius: 2px;
+    background:#058705;
+    border:solid 2px #02a902;
+
+}
+
+.MyButton_green:enabled{
+    border-radius: 2px;
+    outline: none !important;
+}
+
+.MyButton_red{
+
+    background: #ee2c2c;
+    color: whitesmoke;
+    height: 35px;
+    width: 130px;
+    /*padding: 5px;*/
+    border:solid 2px #ee2c2c;
+    /*    border-bottom: solid 3px #058705;*/
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 17px;
+
+    -webkit-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -ms-transition:all .2s ease;
+    transition:all .2s ease;
+}
+
+.MyButton_red:active{
+    border-radius: 2px;
+    margin-top: 1px !important;
+}
+
+.MyButton_red:hover{
+    border-radius: 2px;
+    background:#b22222;
+    border:solid 2px #ee2c2c;
+
+}
+
+.MyButton_red:enabled{
+    border-radius: 2px;
+    outline: none !important;
+}
+
+
+.MyButton_blue{
+
+    background: #4876ff;
+    color: whitesmoke;
+    height: 35px;
+    width: 130px;
+    /*padding: 5px;*/
+    border:solid 2px #4876ff;
+    /*    border-bottom: solid 3px #0066cc;*/
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 17px;
+
+    -webkit-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -ms-transition:all .2s ease;
+    transition:all .2s ease;
+}
+
+.MyButton_blue:active{
+    border-radius: 2px;
+    margin-top: 1px !important;
+}
+
+.MyButton_blue:hover{
+    border-radius: 2px;
+    background:#104e8b;
+    border:solid 2px #4876ff;
+}
+
+.MyButton_blue:enabled{
+    border-radius: 2px;
+    outline: none !important;
+}
+
+
+.MyButton_yellow{
+
+    background: #FFA500;
+    color: whitesmoke;
+    height: 35px;
+    width: 130px;
+    /*padding: 5px;*/
+    border:solid 2px #FFA500;
+    /*    border-bottom: solid 3px #0066cc;*/
+    text-decoration: none;
+    border-radius: 2px;
+    font-size: 17px;
+
+    -webkit-transition:all .2s ease;
+    -o-transition:all .2s ease;
+    -moz-transition:all .2s ease;
+    -ms-transition:all .2s ease;
+    transition:all .2s ease;
+}
+
+.MyButton_yellow:active{
+    border-radius: 2px;
+    margin-top: 1px !important;
+}
+
+.MyButton_yellow:hover{
+    border-radius: 2px;
+    background:#cd950c;
+    border:solid 2px #FFA500;
+}
+
+.MyButton_yellow:enabled{
+    border-radius: 2px;
+    outline: none !important;
+}
+
+
+
+/************* GENERAL COMODINES ***************/
+.v_separador{
+    height: 85px;
+    width: 1px;
+    background: #ddd;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+input:required {
+    border: 2px solid rgba(255,0,0,0.3) !important;
+}
+
+input:valid {
+    border:solid 2px #ccc !important;
+}
+
+input:invalid {
+    border: 2px solid blue;
+}
+
+input:disabled,input:read-only{
+    cursor: no-drop !important;
+    background: #ddd !important;
+    color:gray;
+    text-align: center;
+    opacity: 0.6;
+    /*    width: 60px;*/
+    padding: 0;
+    border: solid 2px #b9b9b9 !important;
+}
+
+
+
+/************* GENERAL MESSAGES ***************/
+
+.MyInfo, .MySuccess, .MyWarning, .MyError, .MyValidation {
+    /*border: 1px solid;*/
+    margin: 10px 0px;
+    padding: 9px 20px 9px 50px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    background-size: 22px 22px;
+    font-size: 14px !important;
+}
+
+
+.MyInfo {
+    color: #00529B !important;
+    background-color: #BDE5F8 !important;
+    background-image: url('../src/img/important-blue.png') !important;
+}
+
+.MySuccess {
+    color: #4F8A10 !important;
+    background-color: #DFF2BF !important;
+    background-image: url('../src/img/important-green.png') !important;
+}
+
+.MyWarning {
+    color: #9F6000 !important;
+    background-color: #FEEFB3 !important;
+    background-image: url('../src/img/important-yellow.png') !important;
+}
+
+.MyError{
+    color: #D8000C !important;
+    background-color: #FFBABA !important;
+    background-image: url('../src/img/important-red.png') !important;
+}
+
